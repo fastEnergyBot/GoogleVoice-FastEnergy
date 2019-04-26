@@ -49,9 +49,12 @@ app.intent('Create SR',(conv,params)=>{
 				},
 				function(err, ret){
 					if (err || !ret.success) { 
+					reject(err);
 						return console.error(err, ret);
 					}
 					console.log("Created record id : " + ret.id);
+					resolve('success');
+					
 					conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."}));
 				});
 			}
