@@ -35,11 +35,11 @@ app.intent('Create SR',(conv,params)=>{
 	console.log('Value passed from google2'+params.typeOfSupply);
 	console.log('Value passed from google3'+params.department);
 	
-	conv.ask(new SimpleResponse({speech:"This is a test.",text:"This is a test."}));
+	//conv.ask(new SimpleResponse({speech:"This is a test.",text:"This is a test."}));
 	
 	//conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."}));
 	
-	/*conn.login(process.env.username, process.env.pass, function(err, res){
+	conn.login(process.env.username, process.env.pass, function(err, res){
 		if(err){
 			
 			console.log(err);
@@ -63,7 +63,7 @@ app.intent('Create SR',(conv,params)=>{
 				conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."}));
 			});
 		}
-	});*/
+	});
 		
 		
 	
