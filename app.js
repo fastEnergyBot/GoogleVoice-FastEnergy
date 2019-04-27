@@ -34,40 +34,38 @@ app.intent('Create SR',(conv,params)=>{
 	console.log('Value passed from google1: '+params.accountName);
 	console.log('Value passed from google2: '+params.typeOfSupply);
 	console.log('Value passed from google3: '+params.department);
-	//console.log('sf username: '+process.env.username);
-	//console.log('sf username: '+process.env.pass);
-	//conv.ask(new SimpleResponse({speech:"This is a test.",text:"This is a test."}));
 	
-	//conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."}));
-	
-	conn.login('fastenergyusi@gmail.com', 'fastEnergy@1qyFizCvlsQ93TRhOtDzhDErSH', function(err, res){
-		if(err){
-			
-			console.log(err);
-		}
-		else{
-			
-			//Single case record creation
-			conn.sobject("Case").create({ 
-				AccountId : '0015C00000NIcDDQA1', 
-				Status : 'New' ,
-				FE_Department__c : params.department,
-				FE_Type_of_supply__c : params.typeOfSupply 
-			},
-			function(err, ret){
-				if (err || !ret.success){ 
-					
-					return console.error(err, ret);
-				}
-				console.log("Created record id : " + ret.id);
+	return new Promise((resolve,reject)=>{
+		
+		
+		
+		conn.login('fastenergyusi@gmail.com', 'fastEnergy@1qyFizCvlsQ93TRhOtDzhDErSH', function(err, res){
+			if(err){
+				reject(err);
+				console.log(err);
+			}
+			else{
 				
-				conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."}));
-			});
-		}
+				
+				 //Single case record creation
+				conn.sobject("Case").create({ 
+					AccountId : '0015C00000NIcDDQA1', 
+					Status : 'New' ,
+					FE_Department__c : params.department,
+					FE_Type_of_supply__c : params.typeOfSupply 
+				},
+				function(err, ret){
+					if (err || !ret.success){ 
+					    reject(err);
+						return console.error(err, ret);
+					}
+					console.log("Created record id : " + ret.id);
+					resolve('success');
+					conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."}));
+				});
+			}
+		});
 	});
-		
-		
-	
 });
 
 
