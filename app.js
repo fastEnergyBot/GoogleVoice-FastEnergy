@@ -7,10 +7,7 @@ const jsforce = require('jsforce');
 const server = express();
 
 
-var conn = new jsforce.Connection({ 
-    loginUrl: 'https://test.salesforce.com', 
-    version: '45.0' 
-}); 
+
 const {
     dialogflow,
     SignIn,
@@ -35,38 +32,25 @@ app.intent('Create SR',(conv,params)=>{
 	console.log('Value passed from google2: '+params.typeOfSupply);
 	console.log('Value passed from google3: '+params.department);
 	
-	return new Promise((resolve,reject)=>{
-		
-		
-		
-		conn.login('fastenergyusi@gmail.com', 'fastEnergy@1qyFizCvlsQ93TRhOtDzhDErSH', function(err, res){
+	
+	var conn = new jsforce.Connection({ 
+    loginUrl: 'https://test.salesforce.com'
+}); 
+
+conn.login('patgupta@deloitte.com.fe.cloudip', 'fastEnergy@1qyFizCvlsQ93TRhOtDzhDErSH', function(err, res){
 			if(err){
-				reject(err);
+				//reject(err);
+				return console.error(err);
 				console.log(err);
 			}
-			else{
+		
 				
-				
-				 //Single case record creation
-				conn.sobject("Case").create({ 
-					AccountId : '0015C00000NIcDDQA1', 
-					Status : 'New' ,
-					FE_Department__c : params.department,
-					FE_Type_of_supply__c : params.typeOfSupply 
-				},
-				function(err, ret){
-					if (err || !ret.success){ 
-					    reject(err);
-						return console.error(err, ret);
-					}
-					console.log("Created record id : " + ret.id);
-					resolve('success');
-					conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."}));
-				});
-			}
+			 console.log(conn.accessToken);
+              console.log(conn.instanceUrl);
+			
 		});
 	});
-});
+
 
 
 var port = process.env.PORT || 3000;
