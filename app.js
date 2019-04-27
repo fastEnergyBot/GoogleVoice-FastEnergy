@@ -36,11 +36,12 @@ app.intent('Create SR',(conv,params)=>{
 		
 		conn.login(process.env.username, process.env.pass, function(err, res){
 			if(err){
-				reject(err);
+				
 				console.log(err);
 			}
 			else{
-				// Single case record creation
+				
+				//Single case record creation
 				conn.sobject("Case").create({ 
 					AccountId : '0015C00000NIcDDQA1', 
 					Status : 'New' ,
@@ -48,17 +49,18 @@ app.intent('Create SR',(conv,params)=>{
 					FE_Type_of_supply__c : params.typeOfSupply 
 				},
 				function(err, ret){
-					if (err || !ret.success) { 
-					reject(err);
+					if (err || !ret.success){ 
+					    
 						return console.error(err, ret);
 					}
 					console.log("Created record id : " + ret.id);
-					resolve('success');
 					
 					conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."}));
 				});
 			}
 		});
+		
+		
 	});
 });
 
