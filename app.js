@@ -40,7 +40,7 @@ app.intent('Create SR',(conv,params)=>{
 	
 	//conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."}));
 	
-	conn.login(process.env.username, process.env.pass, function(err, res){
+	conn.login('fastenergyusi@gmail.com', 'fastEnergy@1qyFizCvlsQ93TRhOtDzhDErSH', function(err, res){
 		if(err){
 			
 			console.log(err);
