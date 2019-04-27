@@ -32,19 +32,39 @@ app.intent('Create SR',(conv,params)=>{
 	var conn = new jsforce.Connection({ 
 		loginUrl: 'https://test.salesforce.com'
 	}); 
-
-	conn.login('patgupta@deloitte.com.fe.cloudip', 'fastEnergy@1qyFizCvlsQ93TRhOtDzhDErSH', function(err, res){
-		if(err){
-			console.log(err);
-		}
-
-
-		console.log(conn.accessToken);
-		console.log(conn.instanceUrl);
-
-		conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."})); 
+	
+	
+	return new Promise((resolve,reject)=>{
+		conn.login('patgupta@deloitte.com.fe.cloudip', 'fastEnergy@1qyFizCvlsQ93TRhOtDzhDErSH', function(err, res){
+			if(err){
+				console.log(err);
+			}
+			else{
+				console.log(conn.accessToken);
+				console.log(conn.instanceUrl);
+				//Single case record creation
+				conn.sobject("Case").create({ 
+					AccountId : '0015C00000NIcDDQA1', 
+					Status : 'New' ,
+					FE_Department__c : params.department,
+					FE_Type_of_supply__c : params.typeOfSupply 
+				},
+				function(err, ret){
+					if (err || !ret.success){ 
+						reject(err);
+						return console.error(err, ret);
+					}
+					console.log("Created record id : " + ret.id);
+					resolve('success');
+					conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."}));
+				});
+			}
+		});
 	});
-});
+	
+	
+	
+)};
 
 
 var port = process.env.PORT || 3000;
