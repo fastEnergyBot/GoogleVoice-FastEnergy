@@ -19,10 +19,7 @@ const {
 
 
 server.use(bodyParser.json());
-// create serve and configure it.
 
-
-//var app = dialogflow({clientId: '340099036889-ol3tcgb0c06poa9p6j6ijpudo7osel2j.apps.googleusercontent.com'});
 var app=dialogflow();
 
 app.intent('Create SR',(conv,params)=>{
@@ -33,26 +30,9 @@ app.intent('Create SR',(conv,params)=>{
 	console.log('Value passed from google3: '+params.department);
 	
 	
-	/*var conn = new jsforce.Connection({ 
-    loginUrl: 'https://test.salesforce.com'
-}); 
-
-conn.login('patgupta@deloitte.com.fe.cloudip', 'fastEnergy@1qyFizCvlsQ93TRhOtDzhDErSH', function(err, res){
-			if(err){
-				//reject(err);
-				//return console.error(err);
-				console.log(err);
-			}
-		
-				
-			 console.log(conn.accessToken);
-              console.log(conn.instanceUrl);
-	conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."})); 
 	
-			
-		});*/
 	conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."})); 
-	});
+});
 
 
 
