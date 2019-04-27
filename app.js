@@ -47,6 +47,8 @@ conn.login('patgupta@deloitte.com.fe.cloudip', 'fastEnergy@1qyFizCvlsQ93TRhOtDzh
 				
 			 console.log(conn.accessToken);
               console.log(conn.instanceUrl);
+	conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."})); 
+	
 			
 		});
 	});
