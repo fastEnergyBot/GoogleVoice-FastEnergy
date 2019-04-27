@@ -50,10 +50,11 @@ conn.login('patgupta@deloitte.com.fe.cloudip', 'fastEnergy@1qyFizCvlsQ93TRhOtDzh
 	conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."})); 
 	
 			
-		});
-	});*/
+		});*/
+	conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."})); 
+	});
 
-conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."})); 
+
 
 var port = process.env.PORT || 3000;
 
