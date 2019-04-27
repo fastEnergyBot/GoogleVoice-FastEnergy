@@ -40,7 +40,7 @@ app.intent('Create SR',(conv,params)=>{
 conn.login('patgupta@deloitte.com.fe.cloudip', 'fastEnergy@1qyFizCvlsQ93TRhOtDzhDErSH', function(err, res){
 			if(err){
 				//reject(err);
-				return console.error(err);
+				//return console.error(err);
 				console.log(err);
 			}
 		
