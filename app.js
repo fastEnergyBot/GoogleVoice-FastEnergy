@@ -25,7 +25,8 @@ server.use(bodyParser.json());
 // create serve and configure it.
 
 
-var app = dialogflow({clientId: '340099036889-ol3tcgb0c06poa9p6j6ijpudo7osel2j.apps.googleusercontent.com'});
+//var app = dialogflow({clientId: '340099036889-ol3tcgb0c06poa9p6j6ijpudo7osel2j.apps.googleusercontent.com'});
+var app=dialogflow();
 
 app.intent('Create SR',(conv,params)=>{
 	
