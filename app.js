@@ -30,23 +30,21 @@ app.intent('Create SR',(conv,params)=>{
 	console.log('Value passed from google3: '+params.department);
 	
 	var conn = new jsforce.Connection({ 
-    loginUrl: 'https://test.salesforce.com'
-}); 
+		loginUrl: 'https://test.salesforce.com'
+	}); 
 
-conn.login('patgupta@deloitte.com.fe.cloudip', 'fastEnergy@1qyFizCvlsQ93TRhOtDzhDErSH', function(err, res){
-			if(err){
-				//reject(err);
-				//return console.error(err);
-				console.log(err);
-			}
-		
-				
-			 console.log(conn.accessToken);
-              console.log(conn.instanceUrl);
-	
-	conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."})); 
-});
+	conn.login('patgupta@deloitte.com.fe.cloudip', 'fastEnergy@1qyFizCvlsQ93TRhOtDzhDErSH', function(err, res){
+		if(err){
+			console.log(err);
+		}
 
+
+		console.log(conn.accessToken);
+		console.log(conn.instanceUrl);
+
+		conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."})); 
+	});
+)};
 
 
 var port = process.env.PORT || 3000;
