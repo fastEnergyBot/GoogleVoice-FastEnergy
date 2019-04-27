@@ -44,7 +44,7 @@ app.intent('Create SR',(conv,params)=>{
 
 		conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."})); 
 	});
-)};
+});
 
 
 var port = process.env.PORT || 3000;
