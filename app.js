@@ -60,7 +60,7 @@ app.intent('Create SR',(conv,params)=>{
 					
 					conv.ask(new BasicCard({
 						title: "Case Number : 00001538",
-						formattedText : "This is a basic card.  Text in a\n      basic card can include \"quotes\" and most other unicode characters\n
+						formattedText : "This is a basic card.  Text in a\n basic card can include \"quotes\" and most other unicode characters\n",
 						text: "Case has been created.", 
 						image: new Image({
 							url: "http://www.fastenergy.co.ke/images/FAST.jpg",
