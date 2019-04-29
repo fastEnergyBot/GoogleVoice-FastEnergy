@@ -60,11 +60,16 @@ app.intent('Create SR',(conv,params)=>{
 					
 					conv.ask(new BasicCard({
 						title: "Case Number : 00001538",
-						formattedText : "This is a basic card.  Text in a\n basic card can include \"quotes\" and most other unicode characters\n",
 						text: "Case has been created.", 
 						image: new Image({
 							url: "http://www.fastenergy.co.ke/images/FAST.jpg",
 							alt: "Fast Energy",
+						}),
+						buttons : new buttons({
+							title : "Go to the Service Request",
+							openUrlAction : { 
+								url : "https://hum--cloudip.cs62.my.salesforce.com/5005C000003UoA4"
+							}
 						}),
 					}));
 					
