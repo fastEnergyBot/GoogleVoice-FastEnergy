@@ -65,7 +65,7 @@ app.intent('Create SR',(conv,params)=>{
 							alt: "Fast Energy",
 						}),
 						title: "Case Number : 00001538",
-						formattedText : "Type of Supply : Gas , Department : Billing"
+						formattedText : "Type of Supply : Gas , Department : Billing",
 					}));
 					
 					
