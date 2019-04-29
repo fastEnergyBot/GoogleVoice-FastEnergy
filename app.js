@@ -59,9 +59,9 @@ app.intent('Create SR',(conv,params)=>{
 					conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."}));
 					
 					conv.ask(new BasicCard({
-						text: "Some text",
-						title: "Some title",
-						formattedText : "this is a test"
+						text: "Case has been created.",
+						title: "Case Number : 00001538",
+						formattedText : "Type of Supply : Gas , Department : Billing"
 					}));
 					
 					
