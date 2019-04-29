@@ -65,12 +65,12 @@ app.intent('Create SR',(conv,params)=>{
 							url: "http://www.fastenergy.co.ke/images/FAST.jpg",
 							alt: "Fast Energy",
 						}),
-						buttons : new buttons({
+						buttons: [{ 
 							title : "Go to the Service Request",
 							openUrlAction : { 
-								url : "https://hum--cloudip.cs62.my.salesforce.com/5005C000003UoA4"
+							  url : "https://hum--cloudip.cs62.my.salesforce.com/5005C000003UoA4"
 							}
-						}),
+						}],
 					}));
 					
 					
