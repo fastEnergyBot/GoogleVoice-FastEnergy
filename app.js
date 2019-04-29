@@ -57,6 +57,15 @@ app.intent('Create SR',(conv,params)=>{
 					console.log("Created record id : " + ret.id);
 					resolve('success');
 					conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."}));
+					
+					conv.ask(new BasicCard({
+						text: "Some text",
+						title: "Some title",
+						formattedText : "this is a test"
+					}));
+					
+					
+					
 				});
 			}
 		});
