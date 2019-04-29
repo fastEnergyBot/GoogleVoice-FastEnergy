@@ -59,13 +59,13 @@ app.intent('Create SR',(conv,params)=>{
 					conv.ask(new SimpleResponse({speech:"A new service request has been created.",text:"A new service request has been created."}));
 					
 					conv.ask(new BasicCard({
-						text: "Case has been created.",
-						/*image: new Image({
+						title: "Case Number : 00001538",
+						formattedText : "This is a basic card.  Text in a\n      basic card can include \"quotes\" and most other unicode characters\n
+						text: "Case has been created.", 
+						image: new Image({
 							url: "http://www.fastenergy.co.ke/images/FAST.jpg",
 							alt: "Fast Energy",
-						}),*/
-						title: "Case Number : 00001538",
-						formattedText : "Type of Supply : Gas",
+						}),
 					}));
 					
 					
